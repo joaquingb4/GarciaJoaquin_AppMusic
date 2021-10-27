@@ -2,6 +2,7 @@ package com.example.garciajoaquin_appmusic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         TextView lblLoginResult = findViewById(R.id.lblLoginResult);
         lblLoginResult.setVisibility(View.INVISIBLE); //Textview invisible
 
+        Intent loginIntent = new Intent(MainActivity.this, MenuActivity.class);
+
+
         //If we click on button login
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
                     lblLoginResult.setText("Successful login");//Set message on the textview
                     Log.i("Test","Successful login");
+                    startActivity(loginIntent);
 
                 }else{
                     lblLoginResult.setText("Wrong name or password");//Set message on the textview
