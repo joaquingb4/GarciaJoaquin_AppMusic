@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_lock_focused.xml" value="0.2140625" />
+        <entry key="app/src/main/res/drawable/xml_login.xml" value="0.371875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.35572916666666665" />
       </map>
