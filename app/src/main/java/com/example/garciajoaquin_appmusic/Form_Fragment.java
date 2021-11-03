@@ -1,5 +1,6 @@
 package com.example.garciajoaquin_appmusic;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,12 +12,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import DB.SongsDBHelper;
+
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Form_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class Form_Fragment extends Fragment {
+
+    private SongsDBHelper dbHelper;
+    private SQLiteDatabase db;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,9 +79,19 @@ public class Form_Fragment extends Fragment {
         EditText autor = view.findViewById(R.id.txtAutorName);
         EditText duration = view.findViewById(R.id.txtDurationSong);
 
+        dbHelper = new SongsDBHelper(getActivity().getApplicationContext()); //To research
+        db = dbHelper.getWritableDatabase();
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Song s = new Song(songName.getText().toString()
+                    ,autor.getText().toString(),
+                        duration.getText().toString()
+                );
+                dbHelper.insertContact(db, s );
+
+
                 MenuActivity.addData(songName.getText().toString(), autor.getText().toString(), duration.getText().toString());
             }
         });
@@ -81,4 +101,6 @@ public class Form_Fragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+
 }

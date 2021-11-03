@@ -21,6 +21,7 @@ public class MenuActivity extends AppCompatActivity {
         array_durations.add(duration);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,4 +48,5 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
+
 }
