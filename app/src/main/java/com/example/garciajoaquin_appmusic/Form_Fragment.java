@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +61,24 @@ public class Form_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_form_, container, false);
+        //Login to save the information
+        Button btnSave = view.findViewById(R.id.btnRecord);
+        // fields to save
+        EditText songName = view.findViewById(R.id.txtSongName);
+        EditText autor = view.findViewById(R.id.txtAutorName);
+        EditText duration = view.findViewById(R.id.txtDurationSong);
+
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                MenuActivity.addData(songName.getText().toString(), autor.getText().toString(), duration.getText().toString());
+            }
+        });
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_form_, container, false);
+        return view;
     }
 }

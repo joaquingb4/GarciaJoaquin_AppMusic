@@ -11,9 +11,13 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<String> array_NameSong;
+    private ArrayList<String> array_NameAutor;
+    private ArrayList<String> array_TotalDuration;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN){
-        array_NameSong = arrN;
+    public RecyclerViewAdapter(ArrayList<String> arraySongs, ArrayList<String> arrayAutors, ArrayList<String> arrayDurations  ){
+        array_NameSong = arraySongs;
+        array_NameAutor = arrayAutors;
+        array_TotalDuration = arrayDurations;
     }
 
     @NonNull
@@ -25,10 +29,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tagNameSong.setText(array_NameSong.get(position));
+        holder.tagAutorName.setText(array_NameAutor.get(position));
+        holder.tagDuration.setText(array_TotalDuration.get(position));
     }
 
     @Override
@@ -38,10 +43,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tagNameSong;
+        TextView tagAutorName;
+        TextView tagDuration;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tagNameSong = itemView.findViewById(R.id.itemListUserName);
+            tagNameSong = itemView.findViewById(R.id.itemListSongName);
+            tagAutorName = itemView.findViewById(R.id.itemListAutor);
+            tagDuration = itemView.findViewById(R.id.itemListSongDuration);
+
         }
     }
 }

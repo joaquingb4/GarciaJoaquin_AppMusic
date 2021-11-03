@@ -20,6 +20,11 @@ import java.util.ArrayList;
  */
 public class List_Fragment extends Fragment {
 
+    ArrayList<String> songs;
+    ArrayList<String> autors;
+    ArrayList<String> durations;
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,6 +37,11 @@ public class List_Fragment extends Fragment {
 
     public List_Fragment() {
         // Required empty public constructor
+    }
+    public List_Fragment(ArrayList<String> songList, ArrayList<String> autorList, ArrayList<String> durationList){
+        this.songs = songList;
+        this.autors = autorList;
+        this.durations = durationList;
     }
 
     /**
@@ -66,28 +76,17 @@ public class List_Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        ArrayList<String> songs = new ArrayList<String>();
+/*
         songs.add("Dreams");
         songs.add("I just wanna know");
-        songs.add("Luke Skywalker");
-        songs.add("Leia Organa");
-        songs.add("Chewbacca");
-        songs.add("C3P0");
-        songs.add("R2D2");
-        songs.add("Dreams");
-        songs.add("I just wanna know");
-        songs.add("Luke Skywalker");
-        songs.add("Leia Organa");
-        songs.add("Chewbacca");
-        songs.add("C3P0");
-        songs.add("R2D2");
-
-
-
-
+        autors.add("NF");
+        autors.add("NF");
+        durations.add("30");
+        durations.add("30");
+*/
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(songs);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(songs,autors,durations);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((view.getContext())));
         recyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), DividerItemDecoration.VERTICAL));

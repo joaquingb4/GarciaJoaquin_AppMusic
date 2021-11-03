@@ -7,9 +7,19 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class MenuActivity extends AppCompatActivity {
     //Attributes
+    private static ArrayList<String> array_songs;
+    private static ArrayList<String> array_autors;
+    private static ArrayList<String> array_durations;
 
+    public static void addData (String song, String autor, String duration ){
+        array_songs.add(song);
+        array_autors.add(autor);
+        array_durations.add(duration);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +35,7 @@ public class MenuActivity extends AppCompatActivity {
                     selectedFragment = new Home_Fragment();
                     break;
                 case R.id.nav_list:
-                    selectedFragment = new List_Fragment();
+                    selectedFragment = new List_Fragment(array_songs, array_autors, array_durations);
                     break;
                 case R.id.nav_form:
                     selectedFragment = new Form_Fragment();
