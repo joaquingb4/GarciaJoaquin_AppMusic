@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
     //Attributes
-    private static ArrayList<String> array_songs;
-    private static ArrayList<String> array_autors;
-    private static ArrayList<String> array_durations;
+    private static ArrayList<String> array_songs = new ArrayList<String>();
+    private static ArrayList<String> array_autors = new ArrayList<String>();
+    private static ArrayList<String> array_durations = new ArrayList<String>();;
 
     public static void addData (String song, String autor, String duration ){
         array_songs.add(song);

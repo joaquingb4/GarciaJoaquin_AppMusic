@@ -14,6 +14,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> array_NameAutor;
     private ArrayList<String> array_TotalDuration;
 
+    public RecyclerViewAdapter(ArrayList<String> arraySongs ){
+        array_NameSong = arraySongs;
+    }
+
     public RecyclerViewAdapter(ArrayList<String> arraySongs, ArrayList<String> arrayAutors, ArrayList<String> arrayDurations  ){
         array_NameSong = arraySongs;
         array_NameAutor = arrayAutors;
